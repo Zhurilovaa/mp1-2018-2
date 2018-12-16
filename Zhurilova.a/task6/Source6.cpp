@@ -70,12 +70,12 @@ long double mycos(long double x, int& N, long double eps)
 //Функция арккосинуса
 long double myacos(long double x, int& N, long double eps)
 {
-	int i;
-	long double a = x, y = (M_PI / 2) - x;
+	int i=0;
+	long double a = x, y =M_PI/2-x;
 	long double zn = acos(x);
-	for (i = 2; i <= N; i++)
+	for (i = 0; i < N; i++)
 	{
-		a = a * (x*x*(2 * i + 1)*(2 * i + 1)) / (2 * (i + 1)*(2 * i + 3));
+		a = a * ((2*i+1)*x*x*(2*i+1))/(2*(i+1)*(2*i+3));
 		y = y - a;
 		if (fabsl(zn - y) < eps)
 		{
